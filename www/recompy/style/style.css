@@ -220,13 +220,13 @@ td {
 #get-btn {
   background-color: brown;
   height: 39px;
-  border: blac 1px solid;
+  border: black 1px solid;
   border-radius: 0.25rem;
   line-height: 1.5;
   font-weight: 400;
   color: #f3f3f3;
-  font-size: 1.5rem;
-  width: 60%;
+  font-size: 1.3rem;
+  width: fit-content;
   margin-top: 30px;
 }
 #get-btn:hover {
@@ -329,9 +329,9 @@ td {
 .rating {
   display: inline-block;
   position: relative;
-  height: 50px;
-  line-height: 50px;
-  font-size: 50px;
+  height: fit-content;
+  line-height: 40px;
+  font-size: 40px;
 }
 
 .rating label {
@@ -423,7 +423,7 @@ td {
   width: 100%;
   background-color: #201a16;    
   position: sticky;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   z-index: 100;
   
   
