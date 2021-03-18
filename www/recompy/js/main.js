@@ -99,7 +99,7 @@ function showModal(movieId) {
   // Show modal with ratings
   document.getElementById(
     "movie-rate"
-  ).innerHTML = `<h2 style="color: brown;">Please rate the movie ${movieToDisplay[0].title}</h2>`;
+  ).innerHTML = `<h2 style="color: brown;">Please rate the movie <span style="color:black">${movieToDisplay[0].title}</span></h2>`;
   //Give every star an event listener
   const stars = document.getElementsByName("stars");
   stars.forEach((element) =>
