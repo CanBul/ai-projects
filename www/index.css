@@ -249,6 +249,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   margin-top: 32px;
+  display: block;
   width: 126px;
   height: 50px;
   font-size: 15px;
@@ -257,4 +258,12 @@ body {
   cursor: pointer;
   -webkit-appearance:none;
   border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(0,0,0, 0.3);
+  
+}
+
+.btn-demo:active {
+  
+  transform: translateY(1px);
+  box-shadow: none;
 }
