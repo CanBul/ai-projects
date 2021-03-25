@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  height: 2000px;
+  
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -254,4 +254,7 @@ body {
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 2px;
+  cursor: pointer;
+  -webkit-appearance:none;
+  border-radius: 0;
 }
