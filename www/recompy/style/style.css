@@ -208,19 +208,30 @@ body {
   z-index: 10;
   left: 0;
   top: 0;
-  height: 95vh;
-  width: 95vw;
+  bottom: 0;
+  
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
 }
 .add-movie {
   background-color: #f4f4f4;
   border-radius: 0.25rem;
-  margin: 30% auto;
+  position: absolute;
+  top: 50%;
+  left:50%;
   padding: 20px;
   width: 70%;
   animation-name: modalopen;
   animation-duration: 1s;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 600px) {
+  .add-movie {
+    width:95%;
+  }
 }
 .closeBtn {
   color: #ccc;
@@ -428,7 +439,7 @@ td {
   border-radius: 0.25rem;
   line-height: 1.5;
   font-weight: 500;
-  color: black;
+  color: #f3f3f3;
   font-size: 1.3rem;
   width: fit-content;
   padding: 0 5px;
@@ -438,7 +449,7 @@ td {
 }
 #get-btn:hover {
   background-color: rgb(82, 4, 4);
-  color: #f3f3f3;
+  color: #f4f4f4;
   cursor: pointer;
 }
 
@@ -560,6 +571,14 @@ td {
   height: fit-content;
   line-height: 40px;
   font-size: 40px;
+
+  
+}
+
+@media (max-width: 600px) {
+  .rating {
+  font-size: 20px;
+  }
 }
 
 .rating label {
