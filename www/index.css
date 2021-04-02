@@ -6,6 +6,7 @@
 }
 html {
   width: 100%;
+  scroll-padding-top: 95px;
 }
 
 body {
@@ -236,7 +237,7 @@ body {
 .main__projects__video {
   display: flex;
   margin-top: 16px;
-  height: 320px;
+  height: 340px;
 }
 
 .btn-form {
