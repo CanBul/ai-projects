@@ -11,6 +11,7 @@ const rightArrow1 = document.getElementById("arrow-right1");
 const leftArrow2 = document.getElementById("arrow-left2");
 const rightArrow2 = document.getElementById("arrow-right2");
 const getRecommendation = document.getElementById("get-btn");
+
 //---------------------------------------------------
 // Get movies from local file
 get_movies();
@@ -263,37 +264,33 @@ function search(e) {
 //Show more movies when arrow is clicked
 leftArrow.addEventListener("click", () => {
   let recommendations = document.getElementById("recommendation").children;
+  var x = window.matchMedia("(max-width: 650px)");
 
-  for (let index = recommendations.length - 1; index > -1; index -= 2) {
-    if (recommendations[index].style.display == "none") {
-      recommendations[index].style.display = "";
-      recommendations[index - 1].style.display = "";
+  if (x.matches) {
+    for (let index = recommendations.length - 1; index > -1; index -= 1) {
+      if (recommendations[index].style.display == "none") {
+        recommendations[index].style.display = "";
+        recommendations[index - 1].style.display = "";        
+        recommendations[index - 2].style.display = "";        
+        recommendations[index - 3].style.display = "";        
 
-      break;
+        break;
+      }
     }
+    return;
   }
-});
 
-leftArrow1.addEventListener("click", () => {
-  let recommendations = document.getElementById("recommendation2").children;
-
-  for (let index = recommendations.length - 1; index > -1; index -= 2) {
+  for (let index = recommendations.length - 1; index > -1; index -= 9) {
     if (recommendations[index].style.display == "none") {
       recommendations[index].style.display = "";
       recommendations[index - 1].style.display = "";
-
-      break;
-    }
-  }
-});
-
-leftArrow2.addEventListener("click", () => {
-  let recommendations = document.getElementById("recommendation3").children;
-
-  for (let index = recommendations.length - 1; index > -1; index -= 2) {
-    if (recommendations[index].style.display == "none") {
-      recommendations[index].style.display = "";
-      recommendations[index - 1].style.display = "";
+      recommendations[index - 2].style.display = "";
+      recommendations[index - 3].style.display = "";
+      recommendations[index - 4].style.display = "";
+      recommendations[index - 5].style.display = "";
+      recommendations[index - 6].style.display = "";
+      recommendations[index - 7].style.display = "";
+      recommendations[index - 8].style.display = "";
 
       break;
     }
@@ -302,47 +299,50 @@ leftArrow2.addEventListener("click", () => {
 
 rightArrow.addEventListener("click", () => {
   let recommendations = document.getElementById("recommendation").children;
+  var x = window.matchMedia("(max-width: 650px)");
 
-  for (let index = 0; index < recommendations.length - 4; index += 2) {
-    if (recommendations[index].style.display != "none") {
-      recommendations[index].style.display = "none";
-      recommendations[index + 1].style.display = "none";
+  if (x.matches) {
+    for (let index = 0; index < recommendations.length - 1; index += 1) {
+    
+      if (recommendations[index].style.display != "none") {
+        recommendations[index].style.display = "none";
+        recommendations[index + 1].style.display = "none";
+        recommendations[index + 2].style.display = "none";
+        recommendations[index + 3].style.display = "none";
+        
 
-      break;
+        break;  
+      }     
+    
+    
     }
+    return;
+  }
+
+  for (let index = 0; index < recommendations.length - 9; index += 9) {
+    
+      if (recommendations[index].style.display != "none") {
+        recommendations[index].style.display = "none";
+        recommendations[index + 1].style.display = "none";
+        recommendations[index + 2].style.display = "none";
+        recommendations[index + 3].style.display = "none";
+        recommendations[index + 4].style.display = "none";
+        recommendations[index + 5].style.display = "none";
+        recommendations[index + 6].style.display = "none";
+        recommendations[index + 7].style.display = "none";
+        recommendations[index + 8].style.display = "none";
+
+        break;  
+      }     
+    
+    
   }
 });
-rightArrow1.addEventListener("click", () => {
-  let recommendations = document.getElementById("recommendation2").children;
 
-  for (let index = 0; index < recommendations.length - 4; index += 2) {
-    if (recommendations[index].style.display != "none") {
-      recommendations[index].style.display = "none";
-      recommendations[index + 1].style.display = "none";
-
-      break;
-    }
-  }
-});
-
-rightArrow2.addEventListener("click", () => {
-  let recommendations = document.getElementById("recommendation3").children;
-
-  for (let index = 0; index < recommendations.length - 4; index += 2) {
-    if (recommendations[index].style.display != "none") {
-      recommendations[index].style.display = "none";
-      recommendations[index + 1].style.display = "none";
-
-      break;
-    }
-  }
-});
 //---------------------------------------------------
 // send my movies to server
 getRecommendation.addEventListener("click", () => {
-  document.getElementById("rec-container").style.display = "grid";
-  document.getElementById("rec-container1").style.display = "grid";
-  document.getElementById("rec-container2").style.display = "grid";
+  document.getElementById("rec-container").style.display = "grid";  
   document.getElementById("show").style.display = "block";
 
   getRecommendationFromServer();
@@ -359,7 +359,7 @@ function getRecommendationFromServer() {
     sendData.push(temp);
   });
   console.log(sendData);
-  fetch("http://34.91.133.210/flask", {
+  fetch("http://134.209.230.209/api/recompy", {
     method: "POST",
     headers: {
       Accept: "application/json, text/plain, */*",
@@ -370,29 +370,6 @@ function getRecommendationFromServer() {
     .then((res) => res.json())
     .then((data) => getPostersAndShow(data));
 
-  //Funk API
-  fetch("http://34.91.133.210/funk", {
-    method: "POST",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(sendData),
-  })
-    .then((res) => res.json())
-    .then((data) => getPostersAndShow2(data));
-
-  //Content based
-  fetch("http://34.91.133.210/content", {
-    method: "POST",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(sendData),
-  })
-    .then((res) => res.json())
-    .then((data) => getPostersAndShow3(data));
 }
 
 function getPostersAndShow(data) {
@@ -402,8 +379,9 @@ function getPostersAndShow(data) {
   //get posters and add it to container
 
   data.forEach((element) => {
+    
     fetch(
-      `https://api.themoviedb.org/3/movie/${element[0]}?api_key=f764605e3fcf27766c7a6bd316f18450&language=en-US`
+      `https://api.themoviedb.org/3/movie/${element}?api_key=f764605e3fcf27766c7a6bd316f18450&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -414,50 +392,3 @@ function getPostersAndShow(data) {
   });
 }
 
-//FUNK Function
-function getPostersAndShow2(data) {
-  let container = document.getElementById("recommendation2");
-  container.innerHTML = "";
-
-  //get posters and add it to container
-  let counter = 0;
-  for (let index = 0; index < 30; index++) {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${data[index]}?api_key=f764605e3fcf27766c7a6bd316f18450&language=en-US`
-    ).then((res) => {
-      if (res.status == 404) {
-        res.json().then((a) => void 1);
-      } else if (res.status == 200) {
-        res.json().then((data) => {
-          var img = new Image();
-          img.src = "http://image.tmdb.org/t/p/w342" + data.poster_path;
-          container.appendChild(img);
-        });
-      }
-    });
-  }
-}
-
-//Content Function
-function getPostersAndShow3(data) {
-  let container = document.getElementById("recommendation3");
-  container.innerHTML = "";
-
-  //get posters and add it to container
-  let counter = 0;
-  for (let index = 0; index < 30; index++) {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${data[index]}?api_key=f764605e3fcf27766c7a6bd316f18450&language=en-US`
-    ).then((res) => {
-      if (res.status == 404) {
-        res.json().then((a) => console.log(1));
-      } else if (res.status == 200) {
-        res.json().then((data) => {
-          var img = new Image();
-          img.src = "http://image.tmdb.org/t/p/w342" + data.poster_path;
-          container.appendChild(img);
-        });
-      }
-    });
-  }
-}
