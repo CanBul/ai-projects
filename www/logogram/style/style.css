@@ -256,7 +256,7 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 3px;
-  cursor: pointer;
+  
   text-decoration: none;
   color: black;
 }
@@ -266,9 +266,10 @@ body {
   margin-left: 5px;
 }
 
-.vae, .van label {
+.option__item input {
   cursor: pointer;
 }
+
 
 @media (max-width:600px) {
   html {
