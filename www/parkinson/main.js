@@ -153,7 +153,7 @@ function onSubmit(e) {
 		};
 		var fd=new FormData();
 		fd.append("audio_data",file, 'filee');
-		xhr.open("POST","http://127.0.0.1:5000/",true);
+		xhr.open("POST","https://aiprojects.inzva.com/api/parkinson",true);
 		xhr.send(fd);
 		
 	} 
@@ -267,7 +267,7 @@ function createDownloadLink(blob) {
 		  };
 		  var fd=new FormData();
 		  fd.append("audio_data",blob, filename);
-		  xhr.open("POST","http://127.0.0.1:5000/",true);
+		  xhr.open("POST","https://aiprojects.inzva.com/api/parkinson",true);
 		  xhr.send(fd);
 	}, {once : true})
 	

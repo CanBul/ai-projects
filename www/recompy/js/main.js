@@ -359,7 +359,7 @@ function getRecommendationFromServer() {
     sendData.push(temp);
   });
   console.log(sendData);
-  fetch("http://134.209.230.209/api/recompy", {
+  fetch("http://104.197.222.142/api/recompy", {
     method: "POST",
     headers: {
       Accept: "application/json, text/plain, */*",

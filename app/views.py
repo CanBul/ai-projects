@@ -23,8 +23,8 @@ def recompy():
 
 
 @app.route('/api/parkinson', methods=['POST'])
-def parkinson():
-    path = '/home/can/Desktop/fromServer.wav'
+def parkinson_route():
+    path = '/home/can/ai-projects/app/fromServer.wav'
     
     if request.method == 'POST':
         request.files['audio_data'].save(path)
@@ -33,4 +33,7 @@ def parkinson():
         result= parkinson.create_and_predict(img)
         
         return str(floor(result*100)/100)
+        
+    
+    
     

@@ -69,10 +69,11 @@ def create_and_predict(spectrogram):
 
     optimizer = RMSprop(lr=0.001, rho=0.9, epsilon=1e-08, decay=0.0)
     model.compile(optimizer = optimizer , loss='binary_crossentropy', metrics=['accuracy'])
-    model.load_weights('./modelWeights.hdf5')
+    model.load_weights('/home/can/ai-projects/app/modelWeights.hdf5')
 
     result = model.predict(spectrogram)
 
     return result
 
 
+# print(create_and_predict(bw_spectrogram_image('./fromServer.wav')))
