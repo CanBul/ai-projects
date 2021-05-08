@@ -5,6 +5,7 @@ from app.content import my_ids, returnMovies
 warnings.filterwarnings("ignore")
 from app import parkinson
 from math import floor
+from app.predict import OffensivePredict
 
 @app.route("/api", methods=['GET'])
 def index():
@@ -33,6 +34,18 @@ def parkinson_route():
         result= parkinson.create_and_predict(img)
         
         return str(floor(result*100)/100)
+@app.route('/api/offensive', methods=['POST'])
+def offensive_route():
+    
+    
+    if request.method == 'POST':
+        print('hello')
+        message = request.get_json()
+        print(message)
+        predict = OffensivePredict()
+        score = predict(message)[0]
+        
+        return jsonify(score)
         
     
     
