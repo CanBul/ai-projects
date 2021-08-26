@@ -342,6 +342,7 @@ rightArrow.addEventListener("click", () => {
 //---------------------------------------------------
 // send my movies to server
 getRecommendation.addEventListener("click", () => {
+  document.getElementById("loading").style.display ="flex";
   document.getElementById("rec-container").style.display = "grid";  
   document.getElementById("show").style.display = "block";
 
@@ -359,7 +360,7 @@ function getRecommendationFromServer() {
     sendData.push(temp);
   });
   console.log(sendData);
-  fetch("http://104.197.222.142/api/recompy", {
+  fetch("https://aiprojects.inzva.com/api/recompy", {
     method: "POST",
     headers: {
       Accept: "application/json, text/plain, */*",
@@ -390,5 +391,11 @@ function getPostersAndShow(data) {
         container.appendChild(img);
       });
   });
+  
+
+  container.scrollIntoView(true);
+  window.scrollBy(0, -95);
+  document.getElementById("loading").style.display ="none";
+
 }
 

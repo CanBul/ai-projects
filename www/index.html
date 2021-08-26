@@ -68,7 +68,7 @@
             font-display: auto;
         }
     </style>
-    <title>AI Projects</title>
+    <title>AI Projects — inzva</title>
 </head>
 
 <body>
@@ -81,14 +81,26 @@
                 </a>
             </div>
             <div class="header__user-nav">
-                <a href="https://inzva.com/team" class="header__user-link">Team</a>
-                <a href="https://inzva.com/allevents" class="header__user-link">Events</a>
-                <a href="https://inzva.com/contact" class="header__contact">contact</a>
+                <a href="https://aiprojects.inzva.com" class="header__user-link">AI Projects</a>
+                <a href="https://aiprojects.inzva.com/team" class="header__user-link">Team</a>
+                <a href="https://aiprojects.inzva.com/allevents" class="header__user-link">Events</a>
+                <a href="https://aiprojects.inzva.com/contact" class="header__contact">contact</a>
             </div>
         </header>
         <div class="main">
+            <h1>AI PROJECTS <a href=""></a></h1>
+            <div class="showProjects">
+                <div class="firstRow">
+                    <div class="firstImage img" id="off"><a href=""></a><a href="#offensiveLanguage"></a></div>
+                    <div class="secondImage img" id='recomp'><a href="#recompy"></a></div>
+                    
+                </div>
+                <div class="secondRow">
+                    <div class="thirdImage img" id='park'><a href="#parkinson" id="parkinsonText"></a></div>
+                </div>
+            </div>
             <div id="recompy" class="main__projects">
-                <h3 class="main__projects__subject">RECOMPY: A FRAMEWORK FOR RECOMMENDATION</h2>
+                <h3 class="main__projects__subject">RECOMPY: A FRAMEWORK FOR RECOMMENDATION</h3>
                     <p class="main__projects__paragraph">Onur Boyar, Can Bulguoğlu, Oğuz Kaplan, Emre Yüksel</p>
                     <p class="main__projects__paragraph">The participants of this project created a Python library
                         called ‘Recompy’ which has a set of algorithms to train models. Recompy only depends on NumPy
@@ -99,16 +111,40 @@
                         to play with during the showcase and created a website that showed recommended movies using
                         multiple algorithms in production. </p>
                     <a class="main__projects__link" href="https://github.com/inzva/recompy">Github Repository</a>
-                    <div class="main__projects__video">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/O8d6929etWc"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
+                    
                     <form class="btn-form" action="/recompy">
                         <input class="btn-demo" type="submit" value="Demo" />
                     </form>
+                    
+            </div>
+            <hr>
+            
+            <div id="parkinson" class="main__projects">
+                <h3 class="main__projects__subject">Medical Diagnosis Decision Support System for Parkinson's Disease</h3>
+                    <p class="main__projects__paragraph">Can Bulguoğlu, Duygu Ay, Handenur Çalışkan, Orhan Ağaoğlu</p>
+                    
+                    <p class="main__projects__paragraph">For generations, assessment of speech abnormalities in neurodegenerative disorders such as Parkinson's disease (PD) has been limited to perceptual testing or user-controlled laboratory analysis based on very small human vocalization samples. However, using speech signals, detection of Parkinson's disease is now possible with the help of machine learning and deep learning methods. In this project, our aim is to detect Parkinson's disease by processing speech signals and reach the state-of-the-art level. </p>
 
+                    <p class="main__projects__paragraph">Furthermore, we want to investigate whether our model can achieve a generalized performance for the voice signals from different languages. </p>
+                    
+                    <form class="btn-form" action="/parkinson">
+                        <input class="btn-demo" type="submit" value="Demo" />
+                    </form>
+            </div>
+
+            <hr>
+
+            <div id="offensiveLanguage" class="main__projects">
+                <h3 class="main__projects__subject">Turkish Offensive Language Detection</h3>
+                    <p class="main__projects__paragraph">Abdurrahman Dilmac, Ekrem Bal, Talha Çolakoğlu, Uras Mutlu</p>
+                    
+                    <p class="main__projects__paragraph">Modern NLP tools with deep learning can be used to build a strong model that detects offensive language. Our aim is to reproduce the OffensEval 2020 benchmark on Turkish offensive language detection tasks, and then to improve the model with different techniques such as text normalization and data augmentation.  </p>
+
+                    <p class="main__projects__paragraph">We plan to finalize the project as an open-source API so that interested people can contribute and those who need can use it in their applications or websites. </p>
+                    
+                    <form class="btn-form" action="/offensivelanguage">
+                        <input class="btn-demo" type="submit" value="Demo" />
+                    </form>
             </div>
         </div>
     </div>
@@ -118,9 +154,10 @@
             <img id="mobile-btn2" class="mobile-btn-img2" src="./img/close.png" alt="close">
         </button>
 
-        <a href="https://inzva.com/team" class="mobile-link">Team</a>
-        <a href="https://inzva.com/allevents" class="mobile-link">Events</a>
-        <a href="https://inzva.com/contact" class="mobile-contact">contact</a>
+        <a href="https://aiprojects.inzva.com" class="mobile-link">AI Projects</a>
+        <a href="https://aiprojects.inzva.com/team" class="mobile-link">Team</a>
+        <a href="https://aiprojects.inzva.com/allevents" class="mobile-link">Events</a>
+        <a href="https://aiprojects.inzva.com/contact" class="mobile-contact">contact</a>
     </div>
 
 </body>
@@ -166,6 +203,19 @@
             mobileBtn2.style.transform = "scale(0)";
         }
     }
+
+    function parkinsons() {
+        window.location.hash = 'parkinson'
+    }
+    function language() {
+        window.location.hash = 'offensiveLanguage'
+    }
+    function recompyy() {
+        window.location.hash = 'recompy'
+    }
+    document.getElementById('park').addEventListener('click', parkinsons)
+    document.getElementById('recomp').addEventListener('click', recompyy)
+    document.getElementById('off').addEventListener('click', language)
 </script>
 
 </html>

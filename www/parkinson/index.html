@@ -67,10 +67,10 @@
             font-display: auto;
         }
     </style>
-    <title>Detection of Parkinson's</title>
+    <title>Detection of Parkinson's — inzva</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="contain">
         <header class="header">
             <div class="header__logo">
                 <a href="https://inzva.com/" class="">
@@ -79,12 +79,16 @@
                 </a>
             </div>
             <div class="header__user-nav">
-                <a href="https://inzva.com/team" class="header__user-link">Team</a>
-                <a href="https://inzva.com/allevents" class="header__user-link">Events</a>
-                <a href="https://inzva.com/contact" class="header__contact">contact</a>
+                <a href="https://aiprojects.inzva.com" class="header__user-link">AI Projects</a>
+            <a href="https://aiprojects.inzva.com/team" class="header__user-link">Team</a>
+            <a href="https://aiprojects.inzva.com/allevents" class="header__user-link">Events</a>
+            <a href="https://aiprojects.inzva.com/contact" class="header__contact">contact</a>
             </div>
         </header>
         <div class="main">
+            <h2 class="head">DETECTION OF PARKINSON'S FROM VOICE SIGNALS</h2>
+            <p class="head2">Please click the microphone to start and stop recording</p>
+            
             <form method="POST" class='mic' id="form">          
                 <img src="./assets/microphone.png" alt="Microphone" class="microphone" id='microphone'>
                 <div class="timer">
@@ -111,10 +115,13 @@
           <img id="mobile-btn2" class="mobile-btn-img2" src="../img/close.png" alt="close">
         </button>
     
-        <a href="https://inzva.com/team" class="mobile-link">Team</a>
-        <a href="https://inzva.com/allevents" class="mobile-link">Events</a>
-        <a href="https://inzva.com/contact" class="mobile-contact">contact</a>
-      </div>
+        <a href="https://aiprojects.inzva.com" class="mobile-link">AI Projects</a>
+        <a href="https://aiprojects.inzva.com/team" class="mobile-link">Team</a>
+        <a href="https://aiprojects.inzva.com/allevents" class="mobile-link">Events</a>
+        <a href="https://aiprojects.inzva.com/contact" class="mobile-contact">contact</a>
+    </div>
+
+    <div id="loading"><img src="../img/loader.gif" alt="loader"></div>
     
       <script src="main.js"></script>      
 </body>

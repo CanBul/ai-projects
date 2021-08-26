@@ -199,6 +199,94 @@ body {
 
 /* Projects */
 
+.firstRow {
+  height: 15vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  
+}
+.firstImage {
+  background-image: url(/img/aip_demo_cover_offensive_language.jpg);
+  color: white;
+  flex-basis: 40%;
+  background-size: 100% 100%;
+}
+.secondImage {
+  background-image: url(/img/aip_demo_cover_movie_recommender.jpg);
+  color: white;
+  flex-basis: 40%;
+  background-size: 100% 100%;
+}
+.thirdImage {
+  background-image: url(/img/aip_demo_cover_parkinsons.jpg);
+  color: white;
+  flex-basis: 40%;
+  background-size: 100% 100%;
+  
+}
+
+.secondRow {
+  height: 15vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+}
+
+.img {
+  position: relative;
+  border: .3px solid black;
+  cursor: pointer;
+  
+}
+
+@media (max-width: 640px) {
+  .firstRow {
+    display: block;
+    height:40vh;
+  }
+  .firstImage {
+    
+    height:20vh;
+    margin-bottom: 5px;
+  }
+  .secondImage {
+    width:100%;
+    height:20vh;
+    margin-bottom: 5px;
+
+  }
+  .thirdImage {
+    width:100%;
+    height:20vh;
+  }
+  .secondRow {
+    display: block;
+    height:20vh;
+  }
+  
+}
+
+#parkinsonText {
+  color: black;
+}
+.showProjects a, a:link a:visited {
+  position: absolute;
+  bottom:10px;
+  left: 50%;
+  display: block;
+  text-align: center;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: white;
+  font-family: 'futura-pt';
+  font-size: 24px;
+  font-weight: 500;
+}
+
+
 .main {
   max-width: 660px;
   margin: auto auto !important;
@@ -211,14 +299,22 @@ body {
   text-align: left;
   width: 100%;
   height: 100%;
+  padding-top: 125px;
 }
 .main__projects {
-  padding-top: 95px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
+ .main h1 {
+   text-align: center;
+   font-family: "futura-pt";
+   font-weight: 300;
+   margin-bottom: 20px;
+ }
 
-.main__projects h3 a {
+.main__projects h3 {
   font-weight: 700;
 
   text-transform: uppercase;
@@ -259,7 +355,7 @@ body {
   cursor: pointer;
   -webkit-appearance:none;
   border-radius: 0;
-  box-shadow: 0 0 0 1px rgba(0,0,0, 0.3);
+  
   
 }
 

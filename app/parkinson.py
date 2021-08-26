@@ -42,7 +42,7 @@ def bw_spectrogram_image(wav_path):
 
     return img
     
-def create_and_predict(spectrogram):
+def create_and_predict():
 
     model = Sequential()
 
@@ -71,9 +71,9 @@ def create_and_predict(spectrogram):
     model.compile(optimizer = optimizer , loss='binary_crossentropy', metrics=['accuracy'])
     model.load_weights('/home/can/ai-projects/app/modelWeights.hdf5')
 
-    result = model.predict(spectrogram)
+    
 
-    return result
+    return model
 
 
 # print(create_and_predict(bw_spectrogram_image('./fromServer.wav')))

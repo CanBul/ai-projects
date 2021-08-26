@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import json
 import os
-cwd = '/home/ai-projects/app'
+cwd = '/home/can/ai-projects/app'
 
 
 def my_ids(pointtable):

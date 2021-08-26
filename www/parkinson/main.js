@@ -125,6 +125,7 @@ form.addEventListener('submit', onSubmit);
 function onSubmit(e) {
     
     e.preventDefault();
+	document.getElementById("loading").style.display ="flex";
 	
     const file = document.getElementById('recorder').files[0];
 	
@@ -138,10 +139,12 @@ function onSubmit(e) {
 		
 
 		xhr.onload=function(e) {
+			
 			if(this.readyState === 4) {
 				console.log("Server returned: ",e.target.responseText);
 				result = document.getElementById('result').innerText = e.target.responseText
 				document.getElementById('result-section').style.display = 'block';
+				document.getElementById("loading").style.display ="none";
 
 				if (e.target.responseText >0.5) {
 					document.getElementById('suggestion').innerText = 'We suggest the patient should see an expert'
@@ -263,6 +266,16 @@ function createDownloadLink(blob) {
 		  xhr.onload=function(e) {
 		      if(this.readyState === 4) {
 		          console.log("Server returned: ",e.target.responseText);
+				  
+				result = document.getElementById('result').innerText = e.target.responseText
+				document.getElementById('result-section').style.display = 'block';
+				document.getElementById("loading").style.display ="none";
+
+				if (e.target.responseText >0.5) {
+					document.getElementById('suggestion').innerText = 'We suggest the patient should see an expert'
+				} else {
+					document.getElementById('suggestion').innerText = "There is no sign of voice deterioration"
+				}
 		      }
 		  };
 		  var fd=new FormData();

@@ -7,6 +7,9 @@ from app import parkinson
 from math import floor
 from app.predict import OffensivePredict
 
+predict = OffensivePredict()
+parkinson_model = parkinson.create_and_predict()
+
 @app.route("/api", methods=['GET'])
 def index():
     return "<h1 style='color:red'>Working!!</h1>"
@@ -31,7 +34,7 @@ def parkinson_route():
         request.files['audio_data'].save(path)
 
         img = parkinson.bw_spectrogram_image(path)
-        result= parkinson.create_and_predict(img)
+        result= parkinson_model.predict(img)
         
         return str(floor(result*100)/100)
 @app.route('/api/offensive', methods=['POST'])
@@ -39,11 +42,11 @@ def offensive_route():
     
     
     if request.method == 'POST':
-        print('hello')
+        
         message = request.get_json()
-        print(message)
-        predict = OffensivePredict()
-        score = predict(message)[0]
+        
+        
+        score = predict(message)[1]
         
         return jsonify(score)
         

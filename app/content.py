@@ -2,7 +2,7 @@ from app import app
 import pickle
 import numpy as np
 
-path = '/home/ai-projects/app'
+path = '/home/can/ai-projects/app'
 
 
 def returnMovies(movieList):
